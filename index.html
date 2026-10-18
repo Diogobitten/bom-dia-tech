@@ -268,6 +268,54 @@ body:has(#night-toggle:not(:checked)){--paper:#f6f4ee;--surface:#fffefa;--ink:#1
 .stream-note a{color:var(--blue)}
 @media(max-width:930px){.stream-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.stream-grid{grid-template-columns:1fr}.stream-cover{height:242px}.stream-head-actions{justify-content:flex-start}.stream-copy h3{font-size:25px}.stream-copy{padding:17px}.stream-meta{flex-wrap:wrap}.stream-release{white-space:normal}}
+
+/* cinema-layout-v2 */
+/* Card editorial horizontal: cartaz vertical, resumo e links em colunas. */
+.stream-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;align-items:stretch}
+.stream-card{
+ display:grid;grid-template-columns:148px minmax(0,1fr);align-items:start;gap:17px;
+ padding:12px;border:1px solid var(--line);border-radius:19px;overflow:hidden;
+ background:var(--surface);box-shadow:0 8px 28px rgba(3,9,20,.08);
+ transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease
+}
+.stream-card:hover{transform:translateY(-3px);border-color:var(--blue);box-shadow:var(--shadow)}
+.stream-cover{
+ position:relative;display:block;width:100%;height:auto;min-height:0;aspect-ratio:2/3;
+ align-self:start;overflow:hidden;border-radius:13px;
+ background:linear-gradient(140deg,#344455,#182c38);box-shadow:0 8px 22px rgba(0,0,0,.21)
+}
+.stream-cover img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center;display:block}
+.stream-cover .stream-missing{padding:10px;font:700 11px/1.5 system-ui,sans-serif;color:#e5ebef;text-align:center}
+.stream-copy{padding:4px 3px 4px 0;min-width:0;gap:8px}
+.stream-meta{align-items:start;gap:7px;margin:0 0 1px;flex-wrap:wrap}
+.stream-type{font-size:9px;line-height:1.45}
+.stream-release{font-size:10px;white-space:normal;line-height:1.4}
+.stream-copy h3{font:700 clamp(19px,1.7vw,25px)/1.15 Georgia,serif;letter-spacing:-.035em;margin:0;text-wrap:pretty}
+.stream-platform{font-size:11px;font-weight:850}
+.stream-copy p{font-size:12px;line-height:1.54}
+.stream-credit{font-size:9px!important;line-height:1.4!important}
+.stream-spacer{min-height:4px}
+.stream-actions{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:4px}
+.stream-action{font:800 10px/1.3 system-ui,sans-serif;padding:10px 7px;min-height:37px;display:flex;align-items:center;justify-content:center;border-radius:9px}
+.stream-action.primary{background:#294e60;border-color:#35687e;color:#f1f7f9}
+.stream-action.primary:hover{background:#37677f;color:#fff}
+@media(max-width:1040px){.stream-grid{grid-template-columns:1fr}.stream-card{grid-template-columns:154px minmax(0,1fr)}.stream-copy h3{font-size:24px}}
+@media(max-width:600px){
+ .stream-grid{grid-template-columns:1fr;gap:13px}
+ .stream-card{grid-template-columns:minmax(96px,35%) minmax(0,1fr);gap:11px;padding:10px;border-radius:15px}
+ .stream-cover{width:100%;height:auto;min-height:0;aspect-ratio:2/3;border-radius:10px}
+ .stream-copy{padding:1px 0 2px 0;gap:6px}
+ .stream-copy h3{font-size:20px;line-height:1.15}
+ .stream-copy p{font-size:11px;line-height:1.44}
+ .stream-type{font-size:9px}.stream-release{font-size:9px}
+ .stream-platform{font-size:11px}
+ .stream-credit{font-size:9px!important}
+ .stream-actions{grid-template-columns:1fr;gap:6px}
+ .stream-action{font-size:10px;padding:8px 5px;min-height:32px}
+ .stream-head-actions{justify-content:flex-start}
+}
+@media(max-width:360px){.stream-card{grid-template-columns:97px minmax(0,1fr)}.stream-copy h3{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.stream-card{transition:none}}
 </style></head><body>
 <header class="topbar"><div class="wrap toprow"><a class="brand" href="#capa" aria-label="Voltar à capa do Bom Dia Tech"><span class="brandmark">B.</span><span class="brandword">BOM DIA, <em>TECH!</em></span></a><div class="topdate">DOMINGO · 18 OUTUBRO 2026</div><div class="tools"><a class="archive-tool" href="/historico.html" title="Ver edições anteriores">Arquivo ↗</a><button class="tool" id="smaller" aria-label="Diminuir letra">A−</button><button class="tool" id="larger" aria-label="Aumentar letra">A+</button><input class="sr-only" type="checkbox" id="night-toggle" checked aria-label="Modo noturno"/><label class="tool theme-tool" for="night-toggle" title="Alternar tema"><span class="sr-only">Alternar claro e escuro</span></label></div></div><div class="meta-strip"><div class="wrap strip-row"><a class="stat-pill" href="https://www.sistema-alerta-rio.com.br/" target="_blank" rel="noopener"><span>☁</span> <b>Rio</b> <span>Consultar previsão ↗</span></a><span class="strip-divider">·</span><a class="stat-pill" href="https://finance.yahoo.com/quote/BRL=X/" target="_blank" rel="noopener"><span>$</span> <b>Dólar</b> <span>Ver cotação ↗</span></a><span class="strip-date">DADOS DISPONÍVEIS NAS FONTES · SEM VALORES FICTÍCIOS</span></div></div><div class="progress" id="progress" role="progressbar" aria-label="Progresso da leitura" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div></header>
 <main class="home" id="capa"><div class="wrap"><section class="masthead"><div class="eyebrow">Seu jornal diário de tecnologia</div><h1>Bom Dia,<br/><span>Tech!</span></h1><p class="leadline">O que importa em inteligência artificial, automação e games.</p><div class="masthead-meta"><span>Brasil · Domingo, 18/10/2026</span><span>Edição diária · Nº 003</span><span>Matérias completas e fontes</span></div></section>
