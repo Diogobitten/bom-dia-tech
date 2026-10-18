@@ -7,3 +7,5 @@ Jornal diário de inteligência artificial, automação e tecnologia.
 **Arquivos:** o `index.html` na raiz será publicado pelo projeto Vercel existente.
 
 **Branch de produção:** `main`.
+
+<!-- vercel-deploy-check: 2026-10-18 -->
